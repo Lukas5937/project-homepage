@@ -4,16 +4,20 @@
   --heading-font-style: Playfair Display, system-ui, 'Segoe UI', Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --shadow-style: 0.5px 0.5px 15px rgb(148, 148, 148);
+  --turquoise-color: rgb(70, 171, 208) 66%;
 }
 
 body {
   font-family: var(--system-ui);
+  margin: 0px;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--heading-font-style);
+  font-weight: 100;
+  margin-top: 0px;
 }
 
 a {
@@ -26,7 +30,7 @@ section.about-me {
   justify-content: center;
   background: linear-gradient(
     170deg,
-    rgb(70, 171, 208) 66%,
+    var(--turquoise-color),
     rgb(255, 255, 255) 66%
   );
 }
@@ -56,7 +60,7 @@ section.about-me {
   box-shadow: var(--shadow-style);
 }
 
-.header.link-wrapper {
+.link-wrapper {
   margin-top: 32px;
   display: flex;
   justify-content: flex-end;
@@ -105,4 +109,56 @@ section.my-work {
 
 .card-links {
   margin-left: auto;
+}
+
+.card-links > a > img {
+  width: 20px;
+  height: auto;
+}
+
+section.contact-me {
+  color: rgb(255, 255, 255);
+  background: var(--turquoise-color);
+  padding: 32px;
+}
+
+.contact-me.container {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  gap: 32px;
+}
+
+.contact-me.text-container {
+  max-width: 400px;
+}
+
+.contact-me.text-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-me.white-icon {
+  width: 24px;
+  height: auto;
+}
+
+.contact-me.text-wrapper > p {
+  margin: 16px 0;
+}
+
+.footer.link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+
+.contact-me.container > img {
+  width: 400px;
+  flex-grow: 1;
+  height: auto;
+  object-fit: cover;
 }
