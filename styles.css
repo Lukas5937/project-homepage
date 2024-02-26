@@ -42,8 +42,9 @@ section.about-me {
 }
 
 .about-me.image-wrapper {
-  min-width: 250px;
   max-height: 400px;
+  min-width: 250px;
+  flex-grow: 1;
 }
 
 .about-me.image-wrapper > img {
@@ -54,6 +55,7 @@ section.about-me {
 }
 
 .about-me.text-wrapper {
+  max-width: 600px;
   padding: 24px 24px 0px 24px;
   background-color: white;
   margin: 32px 0px;
