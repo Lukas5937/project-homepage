@@ -60,6 +60,7 @@ section.about-me {
   background-color: white;
   margin: 32px 0px;
   box-shadow: var(--shadow-style);
+  line-height: 1.5;
 }
 
 .link-wrapper {
@@ -75,7 +76,7 @@ section.about-me {
 
 section.my-work {
   max-width: 1000px;
-  margin: auto;
+  margin: 32px auto 64px;
   padding: 16px 32px;
 }
 
@@ -129,7 +130,7 @@ section.contact-me {
   max-width: 1000px;
   width: 100%;
   margin: auto;
-  gap: 32px;
+  gap: 24px;
 }
 
 .contact-me.text-container {
@@ -148,10 +149,10 @@ section.contact-me {
 }
 
 .contact-me.text-wrapper > p {
-  margin: 16px 0;
+  margin: 8px 0;
 }
 
-.footer.link-wrapper {
+.contact-me.link-wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -159,8 +160,45 @@ section.contact-me {
 }
 
 .contact-me.container > img {
-  width: 400px;
+  width: 350px;
   flex-grow: 1;
   height: auto;
   object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .about-me.container {
+    display: block;
+  }
+
+  .about-me.image-wrapper {
+    float: left;
+    width: auto;
+    height: 300px;
+    margin: 0px 16px 16px 0px;
+  }
+
+  .about-me.text-wrapper {
+    text-align: justify;
+  }
+
+  .about-me.text-wrapper > h2 {
+    text-align: center;
+  }
+
+  .my-work.container {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  .card-paragraph {
+    font-size: 14px;
+  }
+
+  .contact-me.container {
+    gap: 16px;
+  }
+
+  .contact-me.container > img {
+    min-width: 150px;
+  }
 }
