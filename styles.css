@@ -4,7 +4,12 @@
   --heading-font-style: Playfair Display, system-ui, 'Segoe UI', Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --shadow-style: 0.5px 0.5px 15px rgb(148, 148, 148);
-  --turquoise-color: rgb(70, 171, 208) 66%;
+  --turquoise-color: rgb(70, 171, 208);
+}
+
+@font-face {
+  font-family: Playfair Display;
+  src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
 }
 
 body {
@@ -18,6 +23,8 @@ h3 {
   font-family: var(--heading-font-style);
   font-weight: 100;
   margin-top: 0px;
+  font-weight: 400;
+  font-style: normal;
 }
 
 a {
@@ -30,7 +37,7 @@ section.about-me {
   justify-content: center;
   background: linear-gradient(
     170deg,
-    var(--turquoise-color),
+    var(--turquoise-color) 66%,
     rgb(255, 255, 255) 66%
   );
 }
@@ -43,8 +50,9 @@ section.about-me {
 
 .about-me.image-wrapper {
   max-height: 400px;
-  min-width: 250px;
+  width: max(300px, 40vw);
   flex-grow: 1;
+  position: relative;
 }
 
 .about-me.image-wrapper > img {
@@ -54,9 +62,19 @@ section.about-me {
   box-shadow: var(--shadow-style);
 }
 
+h1 {
+  position: absolute;
+  bottom: 0px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 48px;
+  width: 100%;
+  margin: 4px;
+}
+
 .about-me.text-wrapper {
-  max-width: 600px;
-  padding: 24px 24px 0px 24px;
+  max-width: 500px;
+  padding: 24px;
   background-color: white;
   margin: 32px 0px;
   box-shadow: var(--shadow-style);
@@ -76,7 +94,7 @@ section.about-me {
 
 section.my-work {
   max-width: 1000px;
-  margin: 32px auto 64px;
+  margin: 0 auto 32px;
   padding: 16px 32px;
 }
 
@@ -90,6 +108,16 @@ section.my-work {
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-style);
+  transition: all 0.25s ease-out;
+}
+
+.my-work.card > a {
+  overflow: hidden;
+}
+
+.my-work.card:hover {
+  background-color: rgb(233, 233, 233);
+  transform: translateY(-10px);
 }
 
 .my-work.card-text {
@@ -103,7 +131,12 @@ section.my-work {
 
 .card-image {
   width: 100%;
-  height: 100%;
+  height: auto;
+  transition: transform 0.25s ease-out;
+}
+
+.card-image:hover {
+  transform: scale(1.2);
 }
 
 .card-heading {
@@ -169,6 +202,8 @@ section.contact-me {
 @media (max-width: 768px) {
   .about-me.container {
     display: block;
+    position: relative;
+    margin: 28px 20px 16px;
   }
 
   .about-me.image-wrapper {
@@ -176,14 +211,28 @@ section.contact-me {
     width: auto;
     height: 300px;
     margin: 0px 16px 16px 0px;
+    position: static;
+  }
+
+  h1 {
+    top: 0px;
+    margin: 0px;
+    right: 32px;
+    z-index: 1;
+    width: auto;
   }
 
   .about-me.text-wrapper {
     text-align: justify;
+    margin-top: 72px;
+    margin-left: 48px;
   }
 
   .about-me.text-wrapper > h2 {
     text-align: center;
+  }
+  .link-wrapper {
+    display: none;
   }
 
   .my-work.container {
@@ -200,5 +249,104 @@ section.contact-me {
 
   .contact-me.container > img {
     min-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  section.about-me,
+  section.my-work {
+    margin-bottom: 72px;
+  }
+
+  section.about-me {
+    background: linear-gradient(
+      170deg,
+      var(--turquoise-color) 30%,
+      rgb(255, 255, 255) 30%
+    );
+  }
+  .about-me.container {
+    display: block;
+    position: static;
+    margin: 20px;
+  }
+
+  .about-me.image-wrapper {
+    float: unset;
+    width: 85%;
+    min-height: 400px;
+    position: relative;
+    box-shadow: var(--shadow-style);
+    margin: auto;
+  }
+
+  .about-me.text-wrapper {
+    margin: 0px;
+    padding: 0px;
+    box-shadow: none;
+  }
+
+  h1 {
+    top: unset;
+    margin: unset;
+    right: unset;
+    z-index: unset;
+    width: 100%;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 54px;
+  }
+
+  .about-me.text-wrapper > h2 {
+    margin: 16px 0px 0px 0px;
+  }
+
+  .about-me.text-wrapper > p {
+    margin: 4px;
+    font-size: 24px;
+    color: rgb(93, 93, 93);
+    font-weight: 300;
+  }
+
+  .link-wrapper,
+  .contact-me.link-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .link-wrapper > a > img {
+    width: 32px;
+    height: auto;
+  }
+
+  .my-work.container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 48px;
+  }
+
+  section.contact-me {
+    padding: 0px;
+    margin: 0;
+  }
+
+  .contact-me.container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-me.container > .text-container {
+    padding: 24px;
+    width: 100%;
+  }
+
+  .contact-me.container > img {
+    width: 100vw;
+    height: auto;
+    padding: 0;
+    margin: 0;
   }
 }
