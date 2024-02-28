@@ -17,6 +17,10 @@ body {
   margin: 0px;
 }
 
+*:focus {
+  outline: 5px dotted green;
+}
+
 h1,
 h2,
 h3 {
@@ -111,13 +115,15 @@ section.my-work {
   transition: all 0.25s ease-out;
 }
 
-.my-work.card > a {
-  overflow: hidden;
-}
-
 .my-work.card:hover {
   background-color: rgb(233, 233, 233);
   transform: translateY(-10px);
+}
+
+.card .image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .my-work.card-text {
